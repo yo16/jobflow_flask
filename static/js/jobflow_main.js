@@ -7,10 +7,10 @@ $(document).ready(function(){
     var box3 = new SPBox([310,200], [350, 250], "box3");
 
     var arw1 = new SPArrow(
-        box1,box2
+        box1, box2
     );
     var arw2 = new SPArrow(
-        box3,box2
+        box3, box2
     );
 
     _svg.append(box1);
@@ -22,9 +22,13 @@ $(document).ready(function(){
     draggable("#"+box1.getId());
     draggable("#"+box2.getId());
     draggable("#"+box3.getId());
+
+    // 右クリック無効
+    $("#svg1")[0].oncontextmenu = function(){return false;};
 });
 
-// SP要素にドラッグする機能を追加
+
+// SP要素をドラッグする機能draggable関連
 var _drag = {
     isMouseDown: false,
     target: "",     // 要素のid
